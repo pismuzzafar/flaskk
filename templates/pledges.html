@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Pledges — ClimaPledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div style="max-width: 900px; margin: 0 auto; padding: 30px 20px 0;">
+        <a href="{{ url_for('landing') }}" class="back-link">← Back to Home</a>
+    </div>
+
+    <div class="page-header">
+        <h1>🌍 Community Pledges</h1>
+        <p class="subtitle">Every pledge is a step toward a better Earth</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-card glass">
+            <span class="stat-number" id="statTotal">0</span>
+            <span class="stat-label">Total Pledges</span>
+        </div>
+        <div class="stat-card glass">
+            <span class="stat-number" id="statCategories">0</span>
+            <span class="stat-label">Categories</span>
+        </div>
+        <div class="stat-card glass">
+            <span class="stat-number" id="statLocations">0</span>
+            <span class="stat-label">Cities</span>
+        </div>
+    </div>
+
+    <div class="filter-bar" id="filterBar">
+        <button class="filter-chip active" data-category="all">All</button>
+        <button class="filter-chip" data-category="Plant Trees">🌳 Trees</button>
+        <button class="filter-chip" data-category="Reduce Plastic">♻️ Plastic</button>
+        <button class="filter-chip" data-category="Save Energy">⚡ Energy</button>
+        <button class="filter-chip" data-category="Sustainable Transport">🚲 Transport</button>
+        <button class="filter-chip" data-category="Save Water">💧 Water</button>
+        <button class="filter-chip" data-category="Other">🌱 Other</button>
+    </div>
+
+    <div class="pledges-grid" id="pledgesGrid">
+        <div class="empty-state">Loading...</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/pledges.js') }}"></script>
+</body>
+</html>

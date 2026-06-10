@@ -1,17 +1,60 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   <title>Demo Text</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Pledge — ClimaPledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-   <h2>Demo Text</h2>
-   
-   <form action="/" method="post">
-      Nama depan:<br />
-      <input type="text" name="namaDepan" size="25" /><br />
-      Nama belakang:<br />
-      <input type="text" name="namaBelakang" size="25" />
-      <p><input type="submit"  value="Kirim" /></p>
-   </form>
-   
+    <div class="form-wrapper">
+        <a href="{{ url_for('landing') }}" class="back-link">← Back to Home</a>
+        <div class="page-header" style="padding: 10px 0 20px;">
+            <h1>Make Your Pledge</h1>
+            <p class="subtitle">Your commitment for a better planet</p>
+        </div>
+
+        <div class="form-card glass">
+            <div class="success-banner" id="successBanner"></div>
+
+            <form id="pledgeForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                    <span class="error-msg" id="errorName">Name cannot be empty.</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Location (City)</label>
+                    <input type="text" id="location" placeholder="e.g., Surabaya">
+                    <span class="error-msg" id="errorLocation">Location cannot be empty.</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Action Category</label>
+                    <select id="category">
+                        <option value="">-- Select a category --</option>
+                        <option value="Plant Trees">🌳 Plant Trees</option>
+                        <option value="Reduce Plastic">♻️ Reduce Plastic</option>
+                        <option value="Save Energy">⚡ Save Energy</option>
+                        <option value="Sustainable Transport">🚲 Sustainable Transport</option>
+                        <option value="Save Water">💧 Save Water</option>
+                        <option value="Other">🌱 Other</option>
+                    </select>
+                    <span class="error-msg" id="errorCategory">Please select a category.</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Your Pledge</label>
+                    <textarea id="description" placeholder="Share your climate commitment..."></textarea>
+                    <span class="error-msg" id="errorDescription">Description cannot be empty.</span>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit Pledge 🌱</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
 </body>
 </html>
